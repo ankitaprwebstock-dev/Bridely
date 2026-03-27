@@ -1,0 +1,507 @@
+.bridelyEvent {
+  --bg: #edf5f4;
+  --line: rgba(115, 132, 130, 0.12);
+  --title: #202126;
+  --text: #777777;
+  --mint: #abd6d3;
+  --mint-dark: #8cc0bc;
+  --peach: #e8a696;
+  --white: #ffffff;
+  --shadow: 0 18px 40px rgba(102, 118, 116, 0.1);
+  --shadow-soft: 0 14px 28px rgba(102, 118, 116, 0.08);
+  --ornament: #dbe7e6;
+
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  padding: 84px 0;
+}
+
+.bridelyEvent * {
+  box-sizing: border-box;
+}
+
+.bridelyEvent__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(237, 245, 244, 0.98), rgba(237, 245, 244, 0.98)),
+    radial-gradient(circle at 85% 12%, rgba(244, 249, 248, 0.55), transparent 24%);
+  z-index: 0;
+}
+
+.bridelyEvent__lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent 106px,
+    var(--line) 106px,
+    var(--line) 107px
+  );
+  opacity: 0.65;
+  z-index: 0;
+}
+
+.bridelyEvent__wash {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 34%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(239, 247, 246, 0.82), transparent 42%),
+    radial-gradient(circle at 100% 14%, rgba(230, 241, 240, 0.76), transparent 24%);
+  z-index: 0;
+}
+
+.bridelyEvent__ornament--right {
+  position: absolute;
+  right: -54px;
+  top: 186px;
+  width: 220px;
+  color: var(--ornament);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bridelyEvent__ornament--right svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bridelyEvent__hearts {
+  position: absolute;
+  right: 250px;
+  top: 52px;
+  width: 180px;
+  height: 120px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bridelyEvent__heart {
+  position: absolute;
+  display: inline-flex;
+  animation: bridelyEventFloat 5s ease-in-out infinite;
+}
+
+.bridelyEvent__heart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bridelyEvent__heart--star {
+  width: 34px;
+  left: 0;
+  top: 0;
+  color: var(--mint);
+}
+
+.bridelyEvent__heart--peach {
+  width: 44px;
+  left: 58px;
+  top: 26px;
+  color: var(--peach);
+  animation-delay: 0.6s;
+}
+
+.bridelyEvent__heart--mintOne {
+  width: 40px;
+  left: 118px;
+  top: 0;
+  color: var(--mint);
+  animation-delay: 1s;
+}
+
+.bridelyEvent__heart--mintTwo {
+  width: 40px;
+  left: 126px;
+  top: 48px;
+  color: var(--mint);
+  animation-delay: 1.4s;
+}
+
+.bridelyEvent__container {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(340px, 430px) minmax(520px, 1fr);
+  gap: 80px;
+  align-items: center;
+}
+
+.bridelyEvent__content {
+  text-align: center;
+  animation: bridelyEventFadeUp 0.9s ease both;
+}
+
+.bridelyEvent__sealWrap {
+  position: relative;
+  width: 148px;
+  margin: 0 auto 18px;
+}
+
+.bridelyEvent__sealGlow {
+  position: absolute;
+  inset: 14px 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(171, 214, 211, 0.2), rgba(171, 214, 211, 0));
+  filter: blur(10px);
+}
+
+.bridelyEvent__seal {
+  position: relative;
+  color: #7f7f7f;
+  animation: bridelyEventFloat 5s ease-in-out infinite;
+}
+
+.bridelyEvent__seal svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bridelyEvent__title {
+  margin: 0;
+  color: var(--title);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.45rem, 4.2vw, 4.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.bridelyEvent__text {
+  margin: 24px auto 0;
+  max-width: 480px;
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.bridelyEvent__button {
+  margin-top: 34px;
+  min-width: 160px;
+  height: 54px;
+  border-radius: 999px;
+  border: 2px solid var(--mint-dark);
+  background: transparent;
+  color: var(--mint-dark);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 28px rgba(140, 192, 188, 0.08);
+}
+
+.bridelyEvent__button:hover {
+  background: var(--mint-dark);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px rgba(140, 192, 188, 0.18);
+}
+
+.bridelyEvent__teamGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 28px 34px;
+  align-items: start;
+}
+
+.bridelyEvent__memberCard {
+  background: #f6f4f4;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  animation: bridelyEventFadeUp 0.8s ease both;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.bridelyEvent__memberCard--1 {
+  transform: translateY(-34px);
+}
+
+.bridelyEvent__memberCard--2 {
+  transform: translateY(6px);
+}
+
+.bridelyEvent__memberCard--3 {
+  transform: translateY(-6px);
+}
+
+.bridelyEvent__memberCard--4 {
+  transform: translateY(38px);
+}
+
+.bridelyEvent__memberCard:hover {
+  box-shadow: 0 22px 46px rgba(102, 118, 116, 0.14);
+}
+
+.bridelyEvent__memberCard--active {
+  border-color: rgba(140, 192, 188, 0.55);
+  box-shadow: 0 24px 52px rgba(102, 118, 116, 0.16);
+}
+
+.bridelyEvent__memberCard--1.bridelyEvent__memberCard--active {
+  transform: translateY(-42px);
+}
+
+.bridelyEvent__memberCard--2.bridelyEvent__memberCard--active {
+  transform: translateY(-2px);
+}
+
+.bridelyEvent__memberCard--3.bridelyEvent__memberCard--active {
+  transform: translateY(-14px);
+}
+
+.bridelyEvent__memberCard--4.bridelyEvent__memberCard--active {
+  transform: translateY(30px);
+}
+
+.bridelyEvent__imageWrap {
+  position: relative;
+  aspect-ratio: 1 / 0.92;
+  overflow: hidden;
+  background: #dddddd;
+  padding: 6px;
+}
+
+.bridelyEvent__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.bridelyEvent__memberCard:hover .bridelyEvent__image,
+.bridelyEvent__memberCard--active .bridelyEvent__image {
+  transform: scale(1.04);
+  filter: grayscale(10%);
+}
+
+.bridelyEvent__socialBar {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%) translateY(12px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease;
+}
+
+.bridelyEvent__socialBar--show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.bridelyEvent__socialBtn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #eeaa96;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(238, 170, 150, 0.28);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.bridelyEvent__socialBtn:hover {
+  transform: translateY(-3px);
+  background: #e59680;
+}
+
+.bridelyEvent__socialBtn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.bridelyEvent__name {
+  margin: 0;
+  padding: 14px 16px 16px;
+  text-align: center;
+  color: #2a2a2a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #f6f4f4;
+}
+
+@keyframes bridelyEventFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bridelyEventFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 1199px) {
+  .bridelyEvent__container {
+    width: min(100%, calc(100% - 36px));
+    gap: 48px;
+    grid-template-columns: minmax(300px, 390px) minmax(460px, 1fr);
+  }
+
+  .bridelyEvent__teamGrid {
+    gap: 22px;
+  }
+
+  .bridelyEvent__hearts {
+    right: 120px;
+  }
+}
+
+@media (max-width: 991px) {
+  .bridelyEvent {
+    padding: 74px 0;
+  }
+
+  .bridelyEvent__container {
+    width: min(100%, calc(100% - 28px));
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .bridelyEvent__content {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .bridelyEvent__teamGrid {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .bridelyEvent__hearts {
+    right: 70px;
+    top: 36px;
+  }
+
+  .bridelyEvent__ornament--right {
+    opacity: 0.45;
+    right: -70px;
+  }
+}
+
+@media (max-width: 767px) {
+  .bridelyEvent {
+    padding: 64px 0;
+  }
+
+  .bridelyEvent__container {
+    width: min(100%, calc(100% - 20px));
+    gap: 38px;
+  }
+
+  .bridelyEvent__title {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .bridelyEvent__text {
+    font-size: 0.98rem;
+  }
+
+  .bridelyEvent__teamGrid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    gap: 18px;
+  }
+
+  .bridelyEvent__memberCard--1,
+  .bridelyEvent__memberCard--2,
+  .bridelyEvent__memberCard--3,
+  .bridelyEvent__memberCard--4,
+  .bridelyEvent__memberCard--1.bridelyEvent__memberCard--active,
+  .bridelyEvent__memberCard--2.bridelyEvent__memberCard--active,
+  .bridelyEvent__memberCard--3.bridelyEvent__memberCard--active,
+  .bridelyEvent__memberCard--4.bridelyEvent__memberCard--active {
+    transform: none;
+  }
+
+  .bridelyEvent__hearts {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 150px;
+    height: 88px;
+    margin: 0 auto 10px;
+  }
+
+  .bridelyEvent__ornament--right {
+    width: 140px;
+    top: auto;
+    bottom: 80px;
+    right: -54px;
+  }
+}
+
+@media (max-width: 479px) {
+  .bridelyEvent__container {
+    width: min(100%, calc(100% - 16px));
+  }
+
+  .bridelyEvent__sealWrap {
+    width: 128px;
+  }
+
+  .bridelyEvent__title {
+    font-size: 1.75rem;
+  }
+
+  .bridelyEvent__text {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .bridelyEvent__button {
+    width: 100%;
+    max-width: 280px;
+    height: 50px;
+    font-size: 0.95rem;
+  }
+
+  .bridelyEvent__name {
+    font-size: 0.94rem;
+  }
+
+  .bridelyEvent__socialBtn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .bridelyEvent__socialBtn svg {
+    width: 16px;
+    height: 16px;
+  }
+}

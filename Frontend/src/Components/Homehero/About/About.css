@@ -1,0 +1,462 @@
+.bridelyAbout {
+  --bg: #f7f7f7;
+  --line: rgba(90, 90, 90, 0.08);
+  --title: #202126;
+  --text: #727272;
+  --peach: #eda58f;
+  --mint: #9fcac7;
+  --white: #ffffff;
+  --shadow-main: 0 24px 60px rgba(116, 129, 127, 0.12);
+  --shadow-soft: 0 18px 40px rgba(101, 114, 112, 0.09);
+
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0 120px;
+  background: var(--bg);
+}
+
+.bridelyAbout * {
+  box-sizing: border-box;
+}
+
+.bridelyAbout__bgSoft {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 7% 9%, rgba(224, 238, 237, 0.95), transparent 24%),
+    radial-gradient(circle at 14% 18%, rgba(234, 243, 242, 0.78), transparent 21%),
+    radial-gradient(circle at 19% 30%, rgba(237, 245, 244, 0.6), transparent 20%),
+    linear-gradient(
+      90deg,
+      rgba(231, 241, 241, 0.84) 0%,
+      rgba(247, 247, 247, 0.94) 34%,
+      rgba(247, 247, 247, 1) 100%
+    );
+  z-index: 0;
+}
+
+.bridelyAbout__bgLines {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent 108px,
+    var(--line) 108px,
+    var(--line) 109px
+  );
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.bridelyAbout__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(14px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bridelyAbout__glow--one {
+  top: 58px;
+  left: 80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0));
+}
+
+.bridelyAbout__glow--two {
+  bottom: 70px;
+  left: 220px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0));
+}
+
+.bridelyAbout__square {
+  position: absolute;
+  right: 10%;
+  bottom: 34px;
+  width: 44px;
+  height: 44px;
+  background: #edf2f2;
+  z-index: 0;
+}
+
+.bridelyAbout__container {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(320px, 470px) minmax(420px, 1fr);
+  gap: 74px;
+  align-items: center;
+}
+
+.bridelyAbout__content {
+  max-width: 480px;
+  animation: bridelyAboutFadeUp 0.9s ease both;
+}
+
+.bridelyAbout__subtitle {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--peach);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bridelyAbout__title {
+  margin: 0;
+  color: var(--title);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.45rem, 4.2vw, 4.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.bridelyAbout__text {
+  margin: 26px 0 0;
+  max-width: 460px;
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.bridelyAbout__button {
+  margin-top: 34px;
+  min-width: 166px;
+  height: 54px;
+  border-radius: 999px;
+  border: 2px solid var(--mint);
+  background: transparent;
+  color: var(--mint);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 24px rgba(159, 202, 199, 0.08);
+}
+
+.bridelyAbout__button:hover {
+  background: var(--mint);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(159, 202, 199, 0.22);
+}
+
+.bridelyAbout__visual {
+  position: relative;
+  min-height: 540px;
+  animation: bridelyAboutFadeUp 1s ease 0.15s both;
+}
+
+.bridelyAbout__iconWrap {
+  position: absolute;
+  top: 38px;
+  left: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--peach);
+  z-index: 4;
+}
+
+.bridelyAbout__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: bridelyAboutFloat 4.8s ease-in-out infinite;
+}
+
+.bridelyAbout__icon svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bridelyAbout__icon--heart {
+  width: 20px;
+  margin-top: 8px;
+}
+
+.bridelyAbout__icon--flower {
+  width: 30px;
+  margin-top: -2px;
+  animation-delay: 0.4s;
+}
+
+.bridelyAbout__icon--bird {
+  width: 68px;
+  animation-delay: 0.9s;
+}
+
+.bridelyAbout__stack {
+  position: relative;
+  width: 100%;
+  height: 540px;
+}
+
+.bridelyAbout__card {
+  position: absolute;
+  overflow: hidden;
+  background: var(--white);
+  border: 4px solid rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-main);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bridelyAbout__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.03), transparent 35%);
+  pointer-events: none;
+}
+
+.bridelyAbout__card:hover {
+  transform: translateY(-6px);
+}
+
+.bridelyAbout__card--main {
+  top: 0;
+  left: 150px;
+  width: 440px;
+  height: 315px;
+  border-radius: 0 42px 0 0;
+  z-index: 2;
+}
+
+.bridelyAbout__card--flower {
+  top: 188px;
+  left: 0;
+  width: 270px;
+  height: 220px;
+  border-radius: 0 0 42px 0;
+  z-index: 3;
+  box-shadow: var(--shadow-soft);
+}
+
+.bridelyAbout__card--toast {
+  top: 348px;
+  left: 300px;
+  width: 245px;
+  height: 88px;
+  border-radius: 0 0 34px 0;
+  z-index: 1;
+  box-shadow: var(--shadow-soft);
+}
+
+.bridelyAbout__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@keyframes bridelyAboutFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bridelyAboutFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 1199px) {
+  .bridelyAbout__container {
+    width: min(100%, calc(100% - 40px));
+    grid-template-columns: minmax(300px, 420px) minmax(360px, 1fr);
+    gap: 46px;
+  }
+
+  .bridelyAbout__visual,
+  .bridelyAbout__stack {
+    min-height: 500px;
+    height: 500px;
+  }
+
+  .bridelyAbout__card--main {
+    left: 120px;
+    width: 380px;
+    height: 280px;
+  }
+
+  .bridelyAbout__card--flower {
+    top: 172px;
+    width: 235px;
+    height: 196px;
+  }
+
+  .bridelyAbout__card--toast {
+    top: 316px;
+    left: 265px;
+    width: 210px;
+    height: 78px;
+  }
+}
+
+@media (max-width: 991px) {
+  .bridelyAbout {
+    padding: 92px 0;
+  }
+
+  .bridelyAbout__bgLines {
+    width: 100%;
+    opacity: 0.26;
+  }
+
+  .bridelyAbout__container {
+    width: min(100%, calc(100% - 30px));
+    grid-template-columns: 1fr;
+    gap: 54px;
+  }
+
+  .bridelyAbout__content {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .bridelyAbout__text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bridelyAbout__visual {
+    width: min(100%, 600px);
+    margin: 0 auto;
+  }
+
+  .bridelyAbout__iconWrap {
+    left: 8px;
+    top: 24px;
+    transform: none;
+  }
+
+  .bridelyAbout__square {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .bridelyAbout {
+    padding: 78px 0;
+  }
+
+  .bridelyAbout__container {
+    width: min(100%, calc(100% - 20px));
+    gap: 38px;
+  }
+
+  .bridelyAbout__title {
+    font-size: clamp(2rem, 9vw, 3.15rem);
+  }
+
+  .bridelyAbout__text {
+    font-size: 0.98rem;
+  }
+
+  .bridelyAbout__visual {
+    min-height: auto;
+  }
+
+  .bridelyAbout__stack {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .bridelyAbout__iconWrap {
+    position: relative;
+    top: auto;
+    left: auto;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  .bridelyAbout__card {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    border-width: 3px;
+    transform: none !important;
+  }
+
+  .bridelyAbout__card--main {
+    height: auto;
+    aspect-ratio: 1 / 0.72;
+    border-radius: 0 32px 0 0;
+  }
+
+  .bridelyAbout__card--flower {
+    height: auto;
+    aspect-ratio: 1 / 0.72;
+    border-radius: 0 0 32px 0;
+  }
+
+  .bridelyAbout__card--toast {
+    height: auto;
+    aspect-ratio: 1 / 0.26;
+    border-radius: 0 0 28px 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .bridelyAbout {
+    padding: 68px 0 70px;
+  }
+
+  .bridelyAbout__container {
+    width: min(100%, calc(100% - 16px));
+  }
+
+  .bridelyAbout__subtitle {
+    font-size: 0.92rem;
+  }
+
+  .bridelyAbout__title {
+    font-size: 1.9rem;
+  }
+
+  .bridelyAbout__text {
+    font-size: 0.92rem;
+    line-height: 1.72;
+  }
+
+  .bridelyAbout__button {
+    min-width: 148px;
+    height: 50px;
+    font-size: 0.95rem;
+  }
+
+  .bridelyAbout__icon--heart {
+    width: 18px;
+  }
+
+  .bridelyAbout__icon--flower {
+    width: 28px;
+  }
+
+  .bridelyAbout__icon--bird {
+    width: 60px;
+  }
+}
