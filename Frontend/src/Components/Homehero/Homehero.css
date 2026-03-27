@@ -1,0 +1,711 @@
+.homeHeroWedding {
+  --bg-main: #f9fbfa;
+  --bg-left: #deecea;
+  --mint: #b7c9c4;
+  --mint-dark: #8ea59f;
+  --mint-soft: #d7e6e1;
+  --peach: #e79e8b;
+  --peach-dark: #db8e7b;
+  --peach-light: #f5c2b4;
+  --text-dark: #0e0e0e;
+  --text-soft: #6f6f6f;
+  --white: #ffffff;
+  --line: rgba(110, 110, 110, 0.11);
+  --shadow-main: 0 30px 70px rgba(164, 182, 178, 0.18);
+  --shadow-card: 0 30px 75px rgba(110, 128, 124, 0.22);
+
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(223, 238, 237, 0.93) 0%,
+    rgba(245, 248, 247, 0.94) 45%,
+    rgba(251, 251, 251, 0.98) 100%
+  );
+  isolation: isolate;
+}
+
+.homeHeroWedding * {
+  box-sizing: border-box;
+}
+
+.homeHeroWedding__bg-watercolor {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 14%, rgba(195, 221, 218, 0.6), transparent 22%),
+    radial-gradient(circle at 15% 58%, rgba(201, 227, 224, 0.5), transparent 24%),
+    radial-gradient(circle at 35% 86%, rgba(216, 235, 232, 0.45), transparent 18%),
+    radial-gradient(circle at 58% 80%, rgba(248, 248, 248, 0.75), transparent 22%),
+    linear-gradient(
+      90deg,
+      rgba(224, 237, 236, 0.85) 0%,
+      rgba(247, 248, 248, 0.88) 45%,
+      rgba(253, 253, 253, 0.97) 100%
+    );
+  z-index: -5;
+}
+
+.homeHeroWedding__bg-lines {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  background-image:
+    linear-gradient(
+      to right,
+      transparent 0,
+      transparent 50%,
+      rgba(88, 88, 88, 0.08) 50%,
+      transparent calc(50% + 1px)
+    ),
+    repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent 8.75%,
+      rgba(112, 112, 112, 0.09) 8.75%,
+      rgba(112, 112, 112, 0.09) calc(8.75% + 1px)
+    );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 45%,
+    rgba(0, 0, 0, 1) 52%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  opacity: 0.8;
+}
+
+.homeHeroWedding__glow {
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  left: 37%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.52) 28%,
+    rgba(255, 255, 255, 0) 72%
+  );
+  filter: blur(12px);
+  z-index: -3;
+  animation: homeHeroWeddingGlow 8s ease-in-out infinite;
+}
+
+.homeHeroWedding__mist {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(18px);
+  z-index: -2;
+  opacity: 0.55;
+}
+
+.homeHeroWedding__mist--one {
+  width: 240px;
+  height: 240px;
+  left: 6%;
+  top: 18%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0));
+}
+
+.homeHeroWedding__mist--two {
+  width: 280px;
+  height: 280px;
+  left: 30%;
+  bottom: 6%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+.homeHeroWedding__container {
+  width: min(1280px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(350px, 520px) minmax(320px, 1fr);
+  gap: 74px;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.homeHeroWedding__mediaWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeHeroWedding__photoAura {
+  position: absolute;
+  width: 108%;
+  height: 108%;
+  border-radius: 100px 16px 84px 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(183, 201, 196, 0.12),
+    rgba(231, 158, 139, 0.1)
+  );
+  filter: blur(16px);
+  transform: scale(1.03);
+  z-index: 0;
+}
+
+.homeHeroWedding__photoCard {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 490px);
+  aspect-ratio: 1 / 1.12;
+  border: 5px solid rgba(255, 255, 255, 0.96);
+  border-radius: 96px 6px 72px 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: rgba(255, 255, 255, 0.55);
+  animation: homeHeroWeddingFloat 5s ease-in-out infinite;
+}
+
+.homeHeroWedding__photoCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.homeHeroWedding__photoOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to top, rgba(14, 14, 14, 0.08), transparent 28%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.08), transparent 35%);
+  pointer-events: none;
+}
+
+.homeHeroWedding__photo {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.015);
+}
+
+.homeHeroWedding__badge {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 28px rgba(72, 86, 84, 0.16);
+}
+
+.homeHeroWedding__badgeIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--peach), var(--peach-light));
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.homeHeroWedding__badgeIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.homeHeroWedding__badge strong {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.1;
+  color: var(--text-dark);
+}
+
+.homeHeroWedding__badge span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  margin-top: 2px;
+}
+
+.homeHeroWedding__content {
+  position: relative;
+  max-width: 610px;
+  padding-top: 18px;
+}
+
+.homeHeroWedding__rings {
+  width: 132px;
+  color: var(--peach);
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: homeHeroWeddingFadeUp 1s ease 0.2s forwards;
+}
+
+.homeHeroWedding__rings svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.homeHeroWedding__eyebrow {
+  display: inline-block;
+  font-size: 0.92rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mint-dark);
+  margin-bottom: 14px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: homeHeroWeddingFadeUp 1s ease 0.28s forwards;
+}
+
+.homeHeroWedding__title {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.7rem, 5vw, 5.05rem);
+  line-height: 0.96;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.04em;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: homeHeroWeddingFadeUp 1s ease 0.38s forwards;
+}
+
+.homeHeroWedding__titleAccent {
+  display: block;
+  color: var(--mint);
+  margin-top: 10px;
+}
+
+.homeHeroWedding__text {
+  margin: 28px 0 0;
+  max-width: 560px;
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  line-height: 1.85;
+  color: var(--text-soft);
+  opacity: 0;
+  transform: translateY(24px);
+  animation: homeHeroWeddingFadeUp 1s ease 0.52s forwards;
+}
+
+.homeHeroWedding__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: homeHeroWeddingFadeUp 1s ease 0.6s forwards;
+}
+
+.homeHeroWedding__feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(183, 201, 196, 0.22);
+  box-shadow: 0 10px 24px rgba(112, 126, 124, 0.08);
+  color: var(--text-dark);
+  font-size: 0.94rem;
+  font-weight: 500;
+}
+
+.homeHeroWedding__featureIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--peach);
+  background: rgba(231, 158, 139, 0.12);
+}
+
+.homeHeroWedding__featureIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.homeHeroWedding__actions {
+  margin-top: 34px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: homeHeroWeddingFadeUp 1s ease 0.68s forwards;
+}
+
+.homeHeroWedding__button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 62px;
+  padding: 0 32px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--peach) 0%, #eda695 100%);
+  color: var(--white);
+  font-size: 1.04rem;
+  font-weight: 600;
+  box-shadow: 0 16px 34px rgba(232, 158, 140, 0.32);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+.homeHeroWedding__button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 42px rgba(232, 158, 140, 0.38);
+  filter: brightness(1.02);
+}
+
+.homeHeroWedding__buttonIcon {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeHeroWedding__buttonIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.homeHeroWedding__leaf {
+  position: absolute;
+  color: #9cb3ab;
+  opacity: 0.65;
+  z-index: -1;
+  animation: homeHeroWeddingLeaf 7s ease-in-out infinite;
+}
+
+.homeHeroWedding__leaf svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.homeHeroWedding__leaf--topLeft {
+  top: 42px;
+  left: -20px;
+  width: 160px;
+}
+
+.homeHeroWedding__leaf--bottomRight {
+  right: -10px;
+  bottom: 18px;
+  width: 210px;
+  opacity: 0.55;
+  animation-delay: 1.2s;
+}
+
+.homeHeroWedding__sparkle {
+  position: absolute;
+  color: rgba(231, 158, 139, 0.45);
+  z-index: -1;
+  animation: homeHeroWeddingSparkle 5s ease-in-out infinite;
+}
+
+.homeHeroWedding__sparkle svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.homeHeroWedding__sparkle--one {
+  top: 19%;
+  left: 50%;
+  width: 22px;
+}
+
+.homeHeroWedding__sparkle--two {
+  bottom: 22%;
+  left: 42%;
+  width: 16px;
+  animation-delay: 1.4s;
+}
+
+@keyframes homeHeroWeddingFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes homeHeroWeddingFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes homeHeroWeddingGlow {
+  0%, 100% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+}
+
+@keyframes homeHeroWeddingLeaf {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+@keyframes homeHeroWeddingSparkle {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.08);
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 1199px) {
+  .homeHeroWedding__container {
+    gap: 48px;
+    grid-template-columns: minmax(300px, 460px) minmax(320px, 1fr);
+  }
+
+  .homeHeroWedding__photoCard {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 991px) {
+  .homeHeroWedding {
+    min-height: auto;
+    padding: 100px 0 70px;
+  }
+
+  .homeHeroWedding__bg-lines {
+    opacity: 0.5;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
+  }
+
+  .homeHeroWedding__container {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    text-align: center;
+    width: min(100%, calc(100% - 34px));
+  }
+
+  .homeHeroWedding__content {
+    margin: 0 auto;
+    max-width: 760px;
+    padding-top: 0;
+  }
+
+  .homeHeroWedding__rings {
+    margin: 0 auto 12px;
+  }
+
+  .homeHeroWedding__text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .homeHeroWedding__features {
+    justify-content: center;
+  }
+
+  .homeHeroWedding__actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .homeHeroWedding__glow {
+    left: 50%;
+    top: 30%;
+    width: 420px;
+    height: 420px;
+  }
+
+  .homeHeroWedding__leaf--topLeft {
+    width: 120px;
+    top: 26px;
+  }
+
+  .homeHeroWedding__leaf--bottomRight {
+    width: 160px;
+    right: -20px;
+    bottom: 8px;
+  }
+
+  .homeHeroWedding__badge {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .homeHeroWedding__sparkle--one {
+    left: 73%;
+    top: 9%;
+  }
+
+  .homeHeroWedding__sparkle--two {
+    left: 20%;
+    bottom: 34%;
+  }
+}
+
+@media (max-width: 767px) {
+  .homeHeroWedding {
+    padding: 86px 0 60px;
+  }
+
+  .homeHeroWedding__container {
+    width: min(100%, calc(100% - 24px));
+    gap: 30px;
+  }
+
+  .homeHeroWedding__photoCard {
+    max-width: 100%;
+    border-width: 4px;
+    border-radius: 70px 6px 54px 6px;
+    aspect-ratio: 1 / 1.1;
+  }
+
+  .homeHeroWedding__photoAura {
+    border-radius: 72px 10px 56px 10px;
+  }
+
+  .homeHeroWedding__title {
+    font-size: clamp(2.2rem, 10vw, 3.4rem);
+    line-height: 1.02;
+  }
+
+  .homeHeroWedding__titleAccent {
+    margin-top: 6px;
+  }
+
+  .homeHeroWedding__text {
+    margin-top: 20px;
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .homeHeroWedding__button {
+    min-height: 56px;
+    padding: 0 24px;
+    font-size: 0.98rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .homeHeroWedding__actions {
+    margin-top: 26px;
+  }
+
+  .homeHeroWedding__leaf--topLeft {
+    width: 94px;
+    left: -18px;
+    top: 18px;
+  }
+
+  .homeHeroWedding__leaf--bottomRight {
+    width: 118px;
+    right: -18px;
+    bottom: 10px;
+  }
+
+  .homeHeroWedding__glow {
+    width: 320px;
+    height: 320px;
+  }
+
+  .homeHeroWedding__badge {
+    width: calc(100% - 24px);
+    max-width: 280px;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .homeHeroWedding__feature {
+    min-height: 42px;
+    padding: 0 14px;
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .homeHeroWedding {
+    padding: 74px 0 52px;
+  }
+
+  .homeHeroWedding__container {
+    width: min(100%, calc(100% - 18px));
+  }
+
+  .homeHeroWedding__photoCard {
+    border-radius: 54px 4px 44px 4px;
+  }
+
+  .homeHeroWedding__photoAura {
+    border-radius: 56px 8px 46px 8px;
+  }
+
+  .homeHeroWedding__eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+  }
+
+  .homeHeroWedding__title {
+    font-size: 2rem;
+  }
+
+  .homeHeroWedding__text {
+    font-size: 0.92rem;
+  }
+
+  .homeHeroWedding__rings {
+    width: 108px;
+  }
+
+  .homeHeroWedding__badge {
+    padding: 10px 12px;
+    bottom: 12px;
+  }
+
+  .homeHeroWedding__badgeIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .homeHeroWedding__features {
+    gap: 10px;
+  }
+}
